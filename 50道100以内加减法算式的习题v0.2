@@ -1,0 +1,41 @@
+package Test_v02;
+import java.util.Random;
+
+public class Test {
+    public static void main(String[] args) {
+        
+    	//调用加减法题目生成方法
+    	Calculations(50,100); //生成50道100以内的加减法
+        
+    }
+    public static void Calculations(int num,int max){
+        
+    	//产生随机数
+        Random r = new Random();
+
+        //产生50道100以内的加减法
+        System.out.print("请计算以下50道加减法：\n");
+        for(int i=0 ; i<num ;){
+        
+            //通过产生随机数来随机产生加号或减号
+            String sign = (r.nextInt(100)<50)?"+":"-";
+            
+            //随机运算数的产生
+            int a = r.nextInt(max);
+            int b = r.nextInt(max);
+            
+            //判断算式结果是否在0到100以内
+            if(a+b<100 && a-b>0){
+                System.out.print("\t"+a+sign+b+"=\t");
+                i++;//题目数计数单位
+            }else{
+                continue;
+            }
+            
+            //样式调整
+            if(i%5==0){
+                System.out.println();
+            }   
+        }
+    }
+}
